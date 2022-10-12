@@ -1,58 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { memo } from 'react';
+import { HomePage } from './homePage/HomePage';
+import { ResultPage } from './resultPage/ResultPage';
+import { Route, Routes, useNavigate } from "react-router-dom"
+import { Input } from './homePage/Input'
+import { useAppDispatch, useAppSelector } from './app/hooks';
+import { setInputValue, selectInputValue } from './slice/inputValueSlice';
+import { NotFoundPage } from './notFoundPage/NotFoundPage'
+import { Button, AppBar, Toolbar } from '@mui/material';
+
+
+
 
 function App() {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch()
+  const inputValue = useAppSelector(selectInputValue)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div style={{ paddingTop: 65 }} className="App">
+      <AppBar
+        color='default'
+      // style={{ marginBottom: 264 }}
+      >
+        <Toolbar>
+          <Input />
+          <Button color='primary' variant='contained' onClick={() => { inputValue && navigate(`/result/${inputValue}`) }}>отправить</Button>
+          <Button color='primary' variant='outlined' onClick={() => { navigate('/'); dispatch(setInputValue('')) }}>вернуться на главную</Button>
+
+        </Toolbar>
+        {/* <br /> */}
+      </AppBar>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path={`/result/:word`} element={<ResultPage />} />
+        <Route path='*' element={<NotFoundPage />} />
+      </Routes>
+
+
     </div>
   );
 }
 
-export default App;
+export default memo(App);
