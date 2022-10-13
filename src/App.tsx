@@ -21,13 +21,11 @@ function App() {
     <div style={{ paddingTop: 65 }} className="App">
       <AppBar
         color='default'
-      // style={{ marginBottom: 264 }}
       >
         <Toolbar>
           <Input />
-          <Button color='primary' variant='contained' onClick={() => { inputValue && navigate(`/result/${inputValue}`) }}>отправить</Button>
-          <Button color='primary' variant='outlined' onClick={() => { navigate('/'); dispatch(setInputValue('')) }}>вернуться на главную</Button>
-
+          {/* <Button color='primary' variant='contained' onClick={() => { inputValue && navigate(`/result/${inputValue}`) }}>отправить</Button> */}
+          <Button color='primary' variant='outlined' onClick={() => { navigate('/'); dispatch(setInputValue(' ')) }}>GO TO HOMEPAGE</Button>
         </Toolbar>
         {/* <br /> */}
       </AppBar>
