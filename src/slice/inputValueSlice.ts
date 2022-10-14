@@ -5,14 +5,10 @@ import { useNavigate } from "react-router-dom"
 
 export interface InputValue {
   value: string
-  status: null | "pending" | "fulfilled" | "rejected"
-  error: null | string
 }
 
 const initialState: InputValue = {
   value: "",
-  status: null,
-  error: null,
 }
 
 export const inputValueSlice = createSlice({

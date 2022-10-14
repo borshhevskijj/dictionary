@@ -1,5 +1,33 @@
-.container {
-  padding: 0 100px;
+* {
+  font-family: "Inter", sans-serif;
+  /* text-align: center; */
+}
+h1 {
+  font-size: calc(1rem + 1vw);
+  font-family: "Work Sans", sans-serif;
+}
+h2 {
+  font-size: calc(0.8rem + 1vw);
+  font-family: "Work Sans", sans-serif;
+}
+.resultPageWrapper {
+  font-size: calc(0.1rem + 1vw);
+}
+
+.phoneticsWrapper li {
+  list-style: none;
+  line-height: 42px;
+}
+
+.searchingWord {
+}
+.title {
+}
+.MeaningsAndDefenitionsWrapper {
+  padding: 0 10%;
+}
+.MeaningsAndDefenitionsWrapper li {
+  line-height: 27px;
 }
 
 .loaderContainer {

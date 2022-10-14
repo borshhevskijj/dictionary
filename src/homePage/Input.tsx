@@ -21,12 +21,10 @@ export const Input = memo(() => {
         if (value === '') {
             setValue(localStorage.getItem('word')! && '')
         }
-    }, [])
-
-
+    }, [value])
 
     const submit = () => {
-        if (inputValue) {
+        if (inputValue.trim()) {
             setIsEmpty(false)
             return navigate(`/result/${inputValue}`)
         }
@@ -36,8 +34,6 @@ export const Input = memo(() => {
     useEffect(() => {
         dispatch(setInputValue(value))
     }, [submit])
-
-
 
 
     const warning = () => {
@@ -52,6 +48,7 @@ export const Input = memo(() => {
     return (
         <>
             <TextField
+                style={{ marginRight: 20 }}
                 color={isEmpty ? 'error' : 'primary'}
                 variant='outlined'
                 size='small'
@@ -61,12 +58,10 @@ export const Input = memo(() => {
                 onChange={e => setValue(e.target.value)}
                 error={!!isEmpty}
             />
-            {/* {isEmpty && */}
             <Zoom in={isEmpty}>
-                <Alert className={cl.alertBox} severity="error">This is an error alert — check it out!</Alert>
+                <Alert className={cl.alertBox} severity="error">Input is invalid, type the word!</Alert>
             </Zoom>
-            {/* } */}
-            <Button color='primary' variant='contained' onClick={() => submit()}>SUBMIT</Button>
+            <Button style={{ marginRight: 20 }} color='primary' size='medium' variant='contained' onClick={() => submit()}>SUBMIT</Button>
         </>
     )
 })

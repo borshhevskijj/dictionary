@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState, AppThunk } from "../app/store"
-import axios, { AxiosError } from "axios"
+import axios from "axios"
 
 export interface ResultValue {
   word: string
@@ -26,11 +26,10 @@ export interface ResultValue {
     }[]
   }[]
 }
-
 export interface Result {
   value: ResultValue[]
   status: null | "pending" | "fulfilled" | "rejected"
-  error: null | string
+  error: null | string[]
 }
 
 const url = (word: string) =>
@@ -38,15 +37,17 @@ const url = (word: string) =>
 
 export const fetchWord: any = createAsyncThunk(
   "result/fetchWord",
-  async (word: string) => {
-    const resp = await axios.get(url(word))
-
-    if (!(resp.status.toString().at(0) === "2")) {
-      throw new Error("something went wrong...")
+  async (word: string, { rejectWithValue }) => {
+    try {
+      const resp = await axios.get(url(word))
+      if (!(resp.status >= 200 && resp.status < 300)) {
+        throw new Error()
+      }
+      const data = resp.data
+      return data
+    } catch (error: any) {
+      return rejectWithValue([error.message, error.response.data.message])
     }
-    const data = resp.data
-
-    return data
   }
 )
 
@@ -70,9 +71,9 @@ export const resultSlice = createSlice({
       state.value = action.payload
       state.error = null
     },
-    [fetchWord.rejected]: (state) => {
+    [fetchWord.rejected]: (state, action) => {
       state.status = "rejected"
-      state.error = "somthing wend wrong.."
+      state.error = action.payload
     },
   },
 })

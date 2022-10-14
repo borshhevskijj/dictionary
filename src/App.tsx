@@ -14,7 +14,7 @@ import { Button, AppBar, Toolbar } from '@mui/material';
 function App() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch()
-  const inputValue = useAppSelector(selectInputValue)
+  // const inputValue = useAppSelector(selectInputValue)
 
 
   return (
@@ -25,7 +25,7 @@ function App() {
         <Toolbar>
           <Input />
           {/* <Button color='primary' variant='contained' onClick={() => { inputValue && navigate(`/result/${inputValue}`) }}>отправить</Button> */}
-          <Button color='primary' variant='outlined' onClick={() => { navigate('/'); dispatch(setInputValue(' ')) }}>GO TO HOMEPAGE</Button>
+          <Button color='primary' size='small' variant='outlined' onClick={() => { navigate('/'); dispatch(setInputValue('')) }}>GO TO HOMEPAGE</Button>
         </Toolbar>
         {/* <br /> */}
       </AppBar>
