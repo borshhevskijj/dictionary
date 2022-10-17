@@ -14,18 +14,10 @@ h2 {
   font-size: calc(0.1rem + 1vw);
 }
 
-.phoneticsWrapper li {
-  list-style: none;
-  line-height: 42px;
-}
-
-.searchingWord {
-}
-.title {
-}
 .MeaningsAndDefenitionsWrapper {
   padding: 0 10%;
 }
+
 .MeaningsAndDefenitionsWrapper li {
   line-height: 27px;
 }

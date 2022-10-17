@@ -23,9 +23,10 @@ function App() {
         color='default'
       >
         <Toolbar>
+
           <Input />
-          {/* <Button color='primary' variant='contained' onClick={() => { inputValue && navigate(`/result/${inputValue}`) }}>отправить</Button> */}
           <Button color='primary' size='small' variant='outlined' onClick={() => { navigate('/'); dispatch(setInputValue('')) }}>GO TO HOMEPAGE</Button>
+
         </Toolbar>
         {/* <br /> */}
       </AppBar>
