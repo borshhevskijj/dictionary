@@ -26,6 +26,7 @@ export interface ResultValue {
     }[]
   }[]
 }
+
 export interface Result {
   value: ResultValue[]
   status: null | "pending" | "fulfilled" | "rejected"

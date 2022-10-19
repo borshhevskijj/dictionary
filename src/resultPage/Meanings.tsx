@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { uid } from './ResultPage';
 
 type props = {
     meaning: {
@@ -18,13 +19,13 @@ export const Meanings: FC<props> = ({ meaning }) => {
             <h1>{meaning.partOfSpeech}</h1>
             <div>
                 {meaning.definitions.map(def => (
-                    <>
+                    <div key={uid()}>
                         <div>{def.definition}</div>
                         {!!def.example && <b>Example: {def.example}</b>}
                         {!!def.antonyms?.length &&
                             <div>
                                 <b>Antonyms:</b>
-                                <span> {def.antonyms.toString()} </span>
+                                <span> {def.antonyms.toString()}</span>
                             </div>
                         }
                         {!!def.synonyms?.length &&
@@ -34,7 +35,7 @@ export const Meanings: FC<props> = ({ meaning }) => {
                             </div>
                         }
                         <hr />
-                    </>
+                    </div>
                 ))}
             </div>
 

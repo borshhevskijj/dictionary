@@ -2,3 +2,9 @@
   position: absolute;
   top: 68px;
 }
+/* input {
+  color: aqua !important;
+} */
+input .MuiInputBase-input {
+  color: red;
+}

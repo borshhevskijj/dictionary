@@ -6,7 +6,7 @@ import { Input } from './homePage/Input'
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import { setInputValue, selectInputValue } from './slice/inputValueSlice';
 import { NotFoundPage } from './notFoundPage/NotFoundPage'
-import { Button, AppBar, Toolbar } from '@mui/material';
+import { Button, AppBar, Toolbar, Container } from '@mui/material';
 
 
 
@@ -14,30 +14,36 @@ import { Button, AppBar, Toolbar } from '@mui/material';
 function App() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch()
-  // const inputValue = useAppSelector(selectInputValue)
+
+  const goToHome = () => {
+    navigate('/')
+    dispatch(setInputValue(''))
+  }
 
 
   return (
-    <div style={{ paddingTop: 65 }} className="App">
+    <Container maxWidth='lg' className="App" style={{ paddingTop: 56 }}>
       <AppBar
         color='default'
       >
         <Toolbar>
-
           <Input />
-          <Button color='primary' size='small' variant='outlined' onClick={() => { navigate('/'); dispatch(setInputValue('')) }}>GO TO HOMEPAGE</Button>
-
+          <Button
+            color='info'
+            size='small'
+            variant='text'
+            onClick={() => goToHome()} >GO TO HOMEPAGE</Button>
         </Toolbar>
-        {/* <br /> */}
       </AppBar>
+
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path={`/result/:word`} element={<ResultPage />} />
-        <Route path='*' element={<NotFoundPage />} />
+        <Route path='*' element={<NotFoundPage children={<div>Such a page does not exist</div>} />} />
       </Routes>
+    </Container>
 
-
-    </div>
+    // </div>
   );
 }
 

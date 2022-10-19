@@ -1,0 +1,13 @@
+.phonetic {
+  display: flex;
+  align-items: center;
+}
+.phonetic span:not(:last-child) {
+  margin-right: 15px;
+}
+.phoneticAudio svg {
+  cursor: pointer;
+  font-size: 35px;
+}
+.phoneticAudio {
+}

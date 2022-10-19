@@ -3,10 +3,10 @@ import { useAppDispatch } from '../app/hooks';
 import { setInputValue, selectInputValue } from '../slice/inputValueSlice';
 import { useAppSelector } from "../app/hooks"
 import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Alert, Zoom } from '@mui/material';
+import { TextField, Button, Alert, Zoom, Container } from '@mui/material';
 import cl from './input.module.css'
 
-export const Input = memo(() => {
+export const Input = () => {
     const inputValue = useAppSelector(selectInputValue)
     const [value, setValue] = useState('' || localStorage.getItem('word')!)
     const dispatch = useAppDispatch()
@@ -45,10 +45,11 @@ export const Input = memo(() => {
     if (isEmpty) {
         warning()
     }
+
     return (
-        <>
+        <Container maxWidth='lg'>
             <TextField
-                style={{ marginRight: 20 }}
+                className={cl.input}
                 color={isEmpty ? 'error' : 'primary'}
                 variant='outlined'
                 size='small'
@@ -61,7 +62,12 @@ export const Input = memo(() => {
             <Zoom in={isEmpty}>
                 <Alert className={cl.alertBox} severity="error">Input is invalid, type the word!</Alert>
             </Zoom>
-            <Button style={{ marginRight: 20 }} color='primary' size='medium' variant='contained' onClick={() => submit()}>SUBMIT</Button>
-        </>
+            <Button sx={{ marginRight: 2, marginLeft: 2 }}
+                color='info'
+                size='medium'
+                variant='contained'
+                onClick={() => submit()}
+            >SUBMIT</Button>
+        </Container>
     )
-})
+}

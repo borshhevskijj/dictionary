@@ -14,18 +14,6 @@ h2 {
   font-size: calc(0.1rem + 1vw);
 }
 
-.MeaningsAndDefenitionsWrapper {
-  padding: 0 10%;
-}
-
 .MeaningsAndDefenitionsWrapper li {
   line-height: 27px;
-}
-
-.loaderContainer {
-  width: 100%;
-  height: calc(100vh - 64px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
