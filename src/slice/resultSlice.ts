@@ -4,7 +4,7 @@ import axios from "axios"
 
 export interface ResultValue {
   word: string
-  phonetic: string
+  phonetic?: string
   phonetics: (
     | {
         text: string
@@ -28,7 +28,7 @@ export interface ResultValue {
 }
 
 export interface Result {
-  value: ResultValue[]
+  results: ResultValue[]
   status: null | "pending" | "fulfilled" | "rejected"
   error: null | string[]
 }
@@ -53,7 +53,7 @@ export const fetchWord: any = createAsyncThunk(
 )
 
 const initialState: Result = {
-  value: [],
+  results: [],
   status: null,
   error: null,
 }
@@ -69,7 +69,7 @@ export const resultSlice = createSlice({
     },
     [fetchWord.fulfilled]: (state, action) => {
       state.status = "fulfilled"
-      state.value = action.payload
+      state.results = action.payload
       state.error = null
     },
     [fetchWord.rejected]: (state, action) => {
@@ -79,10 +79,6 @@ export const resultSlice = createSlice({
   },
 })
 
-// export const { setResult } = resultSlice.actions
-
-export const selectResult = (state: RootState) => state.result.value
-export const selectResultStatus = (state: RootState) => state.result.status
-export const selectResultError = (state: RootState) => state.result.error
+export const selectResult = (state: RootState) => state.result
 
 export default resultSlice.reducer

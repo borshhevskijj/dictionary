@@ -1,0 +1,11 @@
+.alertBox {
+  position: absolute;
+  top: 68px;
+}
+
+@media (max-width: 838px) {
+  .alertBox {
+    font-size: 1rem !important;
+    line-height: none;
+  }
+}

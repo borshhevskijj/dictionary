@@ -4,8 +4,10 @@ export const Image = () => {
   return (
     <>
       <svg
-        width="540"
-        height="428"
+        // width="320"
+        // height="270"
+        width="500"
+        height="450"
         viewBox="0 0 540 428"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState, AppThunk } from "../app/store"
-import axios from "axios"
-import { useNavigate } from "react-router-dom"
 
 export interface InputValue {
   value: string

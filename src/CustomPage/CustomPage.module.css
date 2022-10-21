@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  text-align: center;
+  align-items: center;
+  font-size: calc(1rem + 1vw);
+  font-family: "Work Sans", sans-serif;
+}
+.pageWrapper {
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 838px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}
+@media (max-width: 1024px) {
+  .wrapper svg {
+    width: 320px;
+    height: 270px;
+  }
+}
+
+@media (min-width: 1401px) {
+  .wrapper svg {
+    width: 500px;
+    height: 450px;
+  }
+}

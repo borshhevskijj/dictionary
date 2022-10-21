@@ -1,12 +1,13 @@
-/* min-height: calc(100vh - 80px);
-width: 100%;
-font-size: calc(1rem + 1vw);
-  font-family: "Work Sans", sans-serif; */
 .title {
-  font-size: 6.9333rem;
+  font-size: calc(6rem + 1vw);
   margin: 0 0 3.33rem 0;
 }
 .subTitle {
-  font-size: 2.3333rem;
-  line-height: 41px;
+  font-size: calc(1.4rem + 1vw);
+}
+@media (max-width: 838px) {
+  .title,
+  .subTitle {
+    margin: 0;
+  }
 }

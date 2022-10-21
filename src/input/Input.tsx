@@ -2,28 +2,49 @@ import React, { useEffect, useState, memo } from 'react'
 import { useAppDispatch } from '../app/hooks';
 import { setInputValue, selectInputValue } from '../slice/inputValueSlice';
 import { useAppSelector } from "../app/hooks"
-import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Alert, Zoom, Container } from '@mui/material';
+import { fetchWord } from '../slice/resultSlice'
+
+import { useNavigate, useLocation } from 'react-router-dom';
+import { TextField, Alert, Zoom, Button } from '@mui/material';
 import cl from './input.module.css'
 
-export const Input = () => {
+export const Input = memo(() => {
     const inputValue = useAppSelector(selectInputValue)
-    const [value, setValue] = useState('' || localStorage.getItem('word')!)
+    // const [value, setValue] = useState(inputValue ?? '')
+    const [value, setValue] = useState('')
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const [isEmpty, setIsEmpty] = useState(false)
+    const { pathname } = useLocation()
 
-    useEffect(() => {
-        localStorage.setItem('word', value)
-    }, [value])
+    // useEffect(() => {
+    //     sessionStorage.setItem('word', value)
+    // }, [value])
 
     useEffect(() => {
         if (value === '') {
-            setValue(localStorage.getItem('word')! && '')
+            setValue(sessionStorage.getItem('word')!)
         }
     }, [value])
 
+
+
+
+    // const submit = () => {
+    //     if (pathname === `/result/${value}`) {
+    //         return false
+    //     }
+    //     if (value.trim()) {
+    //         setIsEmpty(false)
+    //         return navigate(`/result/${value}`)
+    //     }
+    //     setIsEmpty(true)
+    // }
+
     const submit = () => {
+        if (pathname === `/result/${inputValue}`) {
+            return
+        }
         if (inputValue.trim()) {
             setIsEmpty(false)
             return navigate(`/result/${inputValue}`)
@@ -46,28 +67,38 @@ export const Input = () => {
         warning()
     }
 
+    const onPressEnterOnInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            // dispatch(fetchWord(value))
+            // submit()
+            // navigate(`/result/${value}`)
+            submit()
+        }
+    }
+
     return (
-        <Container maxWidth='lg'>
+        <>
             <TextField
-                className={cl.input}
                 color={isEmpty ? 'error' : 'primary'}
                 variant='outlined'
                 size='small'
                 label='search...'
                 type="text"
                 value={value}
-                onChange={e => setValue(e.target.value)}
                 error={!!isEmpty}
+                onChange={e => setValue(e.target.value)}
+                onKeyDown={e => onPressEnterOnInput(e as React.KeyboardEvent<HTMLInputElement>)}
             />
             <Zoom in={isEmpty}>
                 <Alert className={cl.alertBox} severity="error">Input is invalid, type the word!</Alert>
             </Zoom>
-            <Button sx={{ marginRight: 2, marginLeft: 2 }}
+            <Button
+                sx={{ marginRight: 2, marginLeft: 2 }}
                 color='info'
                 size='medium'
                 variant='contained'
                 onClick={() => submit()}
             >SUBMIT</Button>
-        </Container>
+        </>
     )
-}
+})

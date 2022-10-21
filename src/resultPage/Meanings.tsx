@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import { uid } from './ResultPage';
 
 type props = {
@@ -13,7 +13,7 @@ type props = {
     }
 }
 
-export const Meanings: FC<props> = ({ meaning }) => {
+export const Meanings: FC<props> = memo(({ meaning }) => {
     return (
         <>
             <h1>{meaning.partOfSpeech}</h1>
@@ -43,3 +43,4 @@ export const Meanings: FC<props> = ({ meaning }) => {
         </>
     )
 }
+)

@@ -1,12 +1,14 @@
-import React, { FC } from 'react'
-import cl from './NotFoundPage.module.css'
+import React from 'react'
+import cl from './CustomPage.module.css'
 import { Image } from './Image.jsx'
 
-
+// any error pages & home page
 type props = {
     children: JSX.Element
+
 }
-export const NotFoundPage: FC<props> = ({ children }) => {
+
+export const CustomPage: React.FC<props> = ({ children }) => {
     return (
         <div className={cl.pageWrapper}>
             <div className={cl.wrapper}>
