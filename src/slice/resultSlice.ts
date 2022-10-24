@@ -29,8 +29,8 @@ export interface ResultValue {
 
 export interface Result {
   results: ResultValue[]
-  status: null | "pending" | "fulfilled" | "rejected"
-  error: null | string[]
+  status: "pending" | "fulfilled" | "rejected" | null
+  error: string[] | null
 }
 
 const url = (word: string) =>

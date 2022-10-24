@@ -1,11 +1,9 @@
 import React from "react"
 
-export const Image = () => {
+export const BookLoverSvg = () => {
   return (
     <>
       <svg
-        // width="320"
-        // height="270"
         width="500"
         height="450"
         viewBox="0 0 540 428"

@@ -3,10 +3,10 @@ import { useAppSelector, useAppDispatch } from '../app/hooks';
 import { fetchWord } from '../slice/resultSlice'
 import { setInputValue } from '../slice/inputValueSlice';
 import { selectResult } from '../slice/resultSlice';
-import { useParams, useLocation } from 'react-router-dom';
-
+import { useParams } from 'react-router-dom';
 
 import cl from './result.module.css'
+import { BookLoverSvg } from '../Images/BookLoverSvg'
 import { Meanings } from './Meanings';
 import { Phonetics } from './Phonetics';
 import { Loader } from '../UI/Loader'
@@ -19,8 +19,6 @@ export const ResultPage = memo(() => {
     const { error, status, results } = useAppSelector(selectResult)
     const dispatch = useAppDispatch()
     const { word } = useParams()
-    const { pathname } = useLocation()
-
 
     useEffect(() => {
         dispatch(fetchWord(word))
@@ -34,9 +32,11 @@ export const ResultPage = memo(() => {
             <Loader />
         )
     }
+
     if (error) {
         return (
             <CustomPage
+                svg={<BookLoverSvg />}
                 children={
                     <div>
                         {error.map(err => {
