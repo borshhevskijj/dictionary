@@ -33,11 +33,6 @@ export const Input = memo(() => {
         setIsEmpty(true)
     }
 
-    // useEffect(() => {
-    //     dispatch(setInputValue(inputValue))
-    // }, [inputValue])
-
-
     const warning = () => {
         setTimeout(() => {
             setIsEmpty(false)
@@ -68,6 +63,7 @@ export const Input = memo(() => {
             <TextField
                 color={isEmpty ? 'error' : 'primary'}
                 variant='outlined'
+                className={cl.input}
                 size='small'
                 label='search...'
                 type="text"

@@ -2,7 +2,6 @@ import cl from './homePage.module.css'
 import { CustomPage } from '../CustomPage/CustomPage'
 import { WritingSvg } from '../Images/WritingSvg'
 
-
 export const HomePage = () => {
     return (
         <CustomPage

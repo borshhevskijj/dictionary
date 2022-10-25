@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom"
 import { CustomPage } from './CustomPage/CustomPage'
 import { AppBar, Container } from '@mui/material';
 import { NavBar } from './navBar/NavBar';
-import { BookLoverSvg } from './Images/BookLoverSvg';
+import { MachineLearning } from './Images/MachineLearning';
 
 function App() {
 
@@ -19,7 +19,13 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path={`/result/:word`} element={<ResultPage />} />
-        <Route path='*' element={<CustomPage svg={<BookLoverSvg />} children={<div>Such a page does not exist</div>} />} />
+        <Route path='*'
+          element={
+            <CustomPage
+              svg={<MachineLearning />}
+              children={<div>Such a page does not exist</div>}
+            />}
+        />
       </Routes>
     </Container>
 

@@ -6,7 +6,7 @@ import { selectResult } from '../slice/resultSlice';
 import { useParams } from 'react-router-dom';
 
 import cl from './result.module.css'
-import { BookLoverSvg } from '../Images/BookLoverSvg'
+import { MachineLearning } from '../Images/MachineLearning'
 import { Meanings } from './Meanings';
 import { Phonetics } from './Phonetics';
 import { Loader } from '../UI/Loader'
@@ -36,7 +36,7 @@ export const ResultPage = memo(() => {
     if (error) {
         return (
             <CustomPage
-                svg={<BookLoverSvg />}
+                svg={<MachineLearning />}
                 children={
                     <div>
                         {error.map(err => {
