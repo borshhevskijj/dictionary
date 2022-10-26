@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { ResultValue } from './../slice/resultSlice';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import cl from './phonetic.module.css'

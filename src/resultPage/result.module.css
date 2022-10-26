@@ -1,17 +1,18 @@
 * {
   font-family: "Inter", sans-serif;
 }
-h1 {
-  font-size: calc(1rem + 1vw);
+h1,
+h2 {
+  /* font-size: calc(1rem + 1vw); */
   font-family: "Work Sans", sans-serif;
 }
-h2 {
+/* h2 {
   font-size: calc(0.8rem + 1vw);
   font-family: "Work Sans", sans-serif;
-}
-.resultPageWrapper {
+} */
+/* .resultPageWrapper {
   font-size: calc(0.1rem + 1vw);
-}
+} */
 
 .MeaningsAndDefenitionsWrapper li {
   line-height: 27px;

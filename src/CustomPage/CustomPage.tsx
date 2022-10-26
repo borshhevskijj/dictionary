@@ -1,4 +1,3 @@
-import React from 'react'
 import cl from './CustomPage.module.css'
 
 // any error pages & home page
