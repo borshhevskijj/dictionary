@@ -20,7 +20,7 @@ export const Phonetics: FC<props> = ({ results }) => {
 
         ))
     }
-    const validText = results.find(res => res.phonetic !== '')?.phonetic ?? findValidValue('text')[0]?.text
+    const validText = results.find(res => res.phonetic)?.phonetic ?? findValidValue('text')[0]?.text
     const validAudio = findValidValue('audio')[0]?.audio
 
     const audio = new Audio(validAudio)
