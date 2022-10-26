@@ -1,5 +1,5 @@
-<div style='text-align:center;color:'red'>
-                <h1 style='margin: 0'>Dictionary app <br /> (was bootstrapped with Create React App)</h1>
+<div>
+                <h1>Dictionary app <br /> (was bootstrapped with Create React App)</h1>
                 <h2>Explanatory Dictionary. Explains the lexical meaning of words. </h2>
             </div>
             <div>
