@@ -9,7 +9,6 @@
             </div>
             <div>
                 <b> Technologies: </b>
-            </div>
             <ul>
                 <li>ReactJs</li>
                 <li>TypeScript</li>
@@ -20,3 +19,4 @@
                 <li>Css Modules</li>
                 <li><a href="https://dictionaryapi.dev/">Dictionary Api</a></li>
             </ul>
+            </div>

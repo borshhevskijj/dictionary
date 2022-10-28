@@ -64,7 +64,7 @@ export const Input = memo(() => {
                 size='small'
                 label='search...'
                 type="text"
-                value={inputValue}
+                value={inputValue || ''}
                 error={!!isEmpty}
                 onChange={e => dispatch(setInputValue(e.target.value))}
                 onKeyDown={e => onPressEnterOnInput(e as React.KeyboardEvent<HTMLInputElement>)}
@@ -85,7 +85,7 @@ export const Input = memo(() => {
                 size='small'
                 variant='text'
                 onClick={() => goToHome()}
-            >GO TO HOMEPAGE</Button>
+            >HOMEPAGE</Button>
         </>
     )
 })
