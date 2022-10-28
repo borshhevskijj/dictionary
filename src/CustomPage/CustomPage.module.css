@@ -13,13 +13,15 @@
   align-items: center;
   justify-content: center;
 }
-
+.textWrapper {
+  padding: 0 1rem;
+}
 @media (max-width: 838px) {
   .wrapper {
     flex-direction: column;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1085px) {
   .wrapper svg {
     width: 320px;
     height: 270px;
