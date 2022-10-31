@@ -55,12 +55,20 @@ export const Input = memo(() => {
         }
     }
 
+
+
     return (
         <>
             <TextField
                 color={isEmpty ? 'error' : 'primary'}
                 variant='outlined'
                 className={cl.input}
+                sx={{
+                    ' & .notchedOutline': {
+                        borderColor: 'red'
+                    }
+                }
+                }
                 size='small'
                 label='search...'
                 type="text"
@@ -74,6 +82,7 @@ export const Input = memo(() => {
             </Zoom>
             <Button
                 sx={{ marginRight: 2, marginLeft: 2 }}
+                style={{ backgroundColor: '#3f3d56' }}
                 color='info'
                 size='medium'
                 variant='contained'
@@ -82,6 +91,7 @@ export const Input = memo(() => {
 
             <Button
                 color='info'
+                style={{ color: '#3f3d56' }}
                 size='small'
                 variant='text'
                 onClick={() => goToHome()}
